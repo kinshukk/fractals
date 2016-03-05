@@ -2,10 +2,12 @@
 #include <stdio.h>
 #include <string>
 
-const int SCREEN_WIDTH = 500;
-const int SCREEN_HEIGHT = 500;
+const int SCREEN_WIDTH = 1000;
+const int SCREEN_HEIGHT = 1000;
 //max iterations run on a pixel
-const int MAX_ITERS = 50;
+const int MAX_ITERS = 100;
+
+int offsetCount = 0;
 
 //Starts up SDL and creates window
 bool init();
@@ -20,7 +22,7 @@ SDL_Surface* gScreenSurface = NULL;
 unsigned int *ptr = NULL;
 
 void editpixel(int x, int y, int color){
-    int lineoffset = y*(gScreenSurface->pitch / 4);
+    int lineoffset = y*(offsetCount);
     ptr[lineoffset + x] = color;
 }
 
@@ -41,6 +43,7 @@ bool init(){
     }
 
     ptr = (unsigned int*)gScreenSurface->pixels;
+    offsetCount = gScreenSurface->pitch / 4;
 
     return success;
 }
@@ -74,7 +77,7 @@ int main(int argc, char* argv[]){
                         SDL_LockSurface(gScreenSurface);
                     }
 
-                    double c_theta = 0.0, s_theta = 0.0, mod = 0.0, power = -4;
+                    double c_theta = 0.0, s_theta = 0.0, mod = 0.0, power = 2;
                     while(power < 10.0){
                         for(int i=0; i<SCREEN_WIDTH; i++){
                             for(int j=0; j<SCREEN_HEIGHT; j++){
@@ -112,10 +115,11 @@ int main(int argc, char* argv[]){
 
                                     mod = pow(sqrt(x*x + y*y), power);
                                 }
+                                //Find a way to control the color
                                 editpixel(i, j, iters*2987654);
                             }
                         }
-                        power += 0.2;
+                        power += 0.5;
                         SDL_UpdateWindowSurface( gWindow );
                     }
 

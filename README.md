@@ -20,3 +20,4 @@ Features wanted:
   * add a UI(Probably using dear ImGui,)
   * Pause/rewind/etc.
   * Fractal selector
+Optimize - Add GPU acceleration for calculations
