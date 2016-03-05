@@ -3,7 +3,7 @@ Fractals
 
 Introduction
 ------------
-My try at making the exploration of fractals easier
+
 
 TODO
 ----
@@ -14,6 +14,8 @@ Fractals currently to be added:
   3. Dragon curves
   4. Barnsley's fern
   5. Penrose Tiling
+Other non-fractal things to add:
+  1. Cellular automata(Conway's game of life, specifically)
 
 Features wanted:
   * Zooming into parts
