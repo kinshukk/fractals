@@ -14,6 +14,7 @@ Fractals currently to be added:
   3. Dragon curves
   4. Barnsley's fern
   5. Penrose Tiling
+
 Other non-fractal things to add:
   1. Cellular automata(Conway's game of life, specifically)
 
@@ -22,4 +23,5 @@ Features wanted:
   * add a UI(Probably using dear ImGui,)
   * Pause/rewind/etc.
   * Fractal selector
+
 Optimize - Add GPU acceleration for calculations
